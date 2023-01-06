@@ -43,10 +43,10 @@ async function getUserInfo(username) {
 			if (response.status === 404) throw new Error("404");
 		} else {
 			const data = await response.json();
-			state = "loaded";
+
 			update(state);
 			const repoFaveLang = await getLangs(data.repos_url);
-
+			state = "loaded";
 			saveInLS({ ...data, faveLang: repoFaveLang }, key);
 			readFromLs(key);
 		}
