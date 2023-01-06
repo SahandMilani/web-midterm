@@ -3,91 +3,87 @@
     - The goal here is a background image on a website that covers the entire browser window at all times.
 */
 
+html {
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+}
+
 body {
-    background: url("../images/background.jpg") no-repeat center center fixed;
-    background-size: cover;
+	background: url("../images/background.jpg") no-repeat center center fixed;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+}
+.content-container {
+	display: flex;
 }
 
-/*
-    The container holds all objects in this page. for that I use flex display. 
-*/
-
-.container {
-    width: 50%;
-    min-height: 60%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: white;
-    opacity: 0.6;
-    padding: 5px;
-    z-index: 100;
-
-    border-radius: 10px;
-    
-    
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+.info-container {
+	height: 300px;
+	width: 500px;
+	border: black solid 1px;
+	padding: 16px;
+	margin: 8px;
+	background-color: rgb(128, 128, 128, 0.7);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-/*
-    Header specify fieldset header style
-*/
-
-.header {
-    position: relative;
-    color: darkblue;
-    font-weight: 500;
-    font-size: 30px;
+.bio {
+	padding-bottom: 16px;
 }
 
-/* 
-    form card width
-*/
-.card {
-    width: 40%;
+.info-upper {
+	display: flex;
+	justify-content: space-between;
 }
 
-/*
-    fieldset styles
-*/
-
-.fieldset {
-    padding: 10px;
-    border-radius: 10px;
+.profile-img {
+	width: 140px;
+	height: 140px;
 }
 
-/*
-    All Buttons unic style
-*/
-.button {
-    width: 120px;
-    height: 25px;
-    text-align: center;
-    margin: 5px;
-    background-color:  darkblue;
-    color: white;
-    border-radius: 10px;
+.p {
+	color: whitesmoke;
 }
 
-/*
-    saved Answer section style
-*/
-
-.saved_card {
-    display: none;
+.form-container {
+	width: 250px;
+	padding: 16px;
+	margin: 8px;
+	border: black solid 1px;
+	text-align: center;
+	height: 300px;
+	background-color: rgb(128, 128, 128, 0.7);
 }
-  
-/*
-    Error section 
-*/
-.action_result {
-    display: none;
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-label {
+	font-family: "Arial Narrow Bold", sans-serif;
+	color: whitesmoke;
+}
+
+.input {
+	padding: 8px;
+	margin: 4px;
+}
+
+.btn {
+	padding: 8px;
+	margin: 4px;
+	margin-top: 24px;
+	font-weight: bold;
+	font-family: "Arial Narrow Bold", sans-serif;
+	background-color: #2196f3;
+	color: white;
 }

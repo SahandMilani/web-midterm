@@ -1,57 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>My Github</title>
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="icon" type="image/png" href="./images/question.png" />
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr. or Ms.?</title>
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" type="image/png" href="./images/question.png" />
-</head>
-
-<body>
-    <div class="container">
-        <!-- page left part -->
-        <div class="form_card card">
-            <form class="form_card_content">
-                <fieldset class="fieldset">
-                    <legend class="header">Mr. or Ms.?</legend>
-                    <label for="name">Name</label>
-                    <input type="text" id="name" maxlength="255" pattern="[A-Za-z ]+" required>
-                    <br><br>
-                    <input type="radio" id="male" name="gender" value="male">
-                    <label for="male">Male</label><br>
-                    <input type="radio" id="female" name="gender" value="female">
-                    <label for="female">Female</label><br>
-                    <br>
-                    <button class="submit button">submit</button><br>
-                    <button class="save button">save</button>
-                </fieldset>
-            </form>
-            <div class="action_result"></div>
-        </div>
-        <!-- page right part -->
-        <div class="result_card card">
-            <div class="prediction_card">
-                <fieldset class="fieldset">
-                    <legend class="header">Prediction</legend>
-                    <div class="prediction_gender"></div>
-                    <div class="prediction_percent"></div>
-                </fieldset>
-            </div>
-            <div class="saved_card">
-                <fieldset class="fieldset">
-                    <legend class="header">Saved Answer</legend>
-                    <div class="saved_answer_content">
-                    </div><br>
-                    <button class="clear button">clear</button>
-                </fieldset>
-            </div>
-        </div>
-    </div>
-    <script src="./js/index.js"></script>
-</body>
-
+	<body>
+		<div class="content-container">
+			<div class="info-container">
+				<div class="info-upper">
+					<img id="avatar" class="profile-img" src="" />
+					<div class="user-info">
+						<p id="name" class="p">p</p>
+						<p id="blog" class="p">b</p>
+						<p id="location" class="p">l</p>
+						<p id="fave-lang" class="p">Favorite lang: Python</p>
+					</div>
+				</div>
+				<p id="bio" class="bio">
+					Backend Developer,\r\nPh.D. Student,\r\nHappy and Smiling",
+				</p>
+			</div>
+			<div class="form-container">
+				<h3 class="form-label">Enter your username.</h3>
+				<form class="form">
+					<input
+						id="username"
+						class="input"
+						type="text"
+						name="username"
+						placeholder="Username: "
+					/>
+					<button id="btn" class="btn">Submit</button>
+				</form>
+			</div>
+		</div>
+		<script src="./js/index.js"></script>
+	</body>
 </html>
