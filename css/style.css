@@ -1,16 +1,19 @@
 /*  
-    Add background image and set the container div. 
-    - The goal here is a background image on a website that covers the entire browser window at all times.
+    make webpage full screen with no margin.
 */
-
 html {
 	margin: 0px;
 	height: 100%;
 	width: 100%;
 }
 
+/*  
+    make webpage full screen with no margin.
+    add background image.
+    align content to center, vertically and horizontally.
+*/
 body {
-	background: url("../images/background.jpg") no-repeat center center fixed;
+	background: url("../images/bg.png") no-repeat center center fixed;
 	background-size: cover;
 	display: flex;
 	justify-content: center;
@@ -19,40 +22,73 @@ body {
 	height: 100%;
 	width: 100%;
 }
+
+/*  
+    style for main cointainer.
+*/
 .content-container {
 	display: flex;
 }
 
+/*  
+    left container which includes user info and feedback messages. div has 2 childs: .upper-info and .bio
+*/
 .info-container {
 	height: 300px;
 	width: 500px;
 	border: black solid 1px;
 	padding: 16px;
 	margin: 8px;
-	background-color: rgb(128, 128, 128, 0.7);
+	background-color: rgb(128, 128, 128, 0.95);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	border-radius: 8px;
 }
 
+/*  
+    feedback message on .info-container
+*/
+.message {
+	font-family: "Arial Narrow Bold", sans-serif;
+	text-align: center;
+	color: whitesmoke;
+}
+
+/*  
+    style for bio paragraph
+*/
 .bio {
+	color: whitesmoke;
 	padding-bottom: 16px;
 }
 
+/*  
+    style for upper part of .info-container. contains image and user general info. 
+*/
 .info-upper {
 	display: flex;
 	justify-content: space-between;
 }
 
+/*  
+    size of github avatar.
+*/
 .profile-img {
 	width: 140px;
 	height: 140px;
 }
 
+/*  
+    color of paragraphs.
+*/
 .p {
 	color: whitesmoke;
 }
 
+/*  
+    style for container div of form. 
+*/
 .form-container {
 	width: 250px;
 	padding: 16px;
@@ -60,24 +96,37 @@ body {
 	border: black solid 1px;
 	text-align: center;
 	height: 300px;
-	background-color: rgb(128, 128, 128, 0.7);
+	background-color: rgb(128, 128, 128, 0.95);
+	border-radius: 8px;
 }
 
+/*  
+    style for vertical alignment of form fields. 
+*/
 .form {
 	display: flex;
 	flex-direction: column;
 }
 
+/*  
+    form title. 
+*/
 .form-label {
 	font-family: "Arial Narrow Bold", sans-serif;
 	color: whitesmoke;
 }
 
+/*  
+    form input margin and padding. 
+*/
 .input {
 	padding: 8px;
 	margin: 4px;
 }
 
+/*  
+    form button styles. with margin-top.
+*/
 .btn {
 	padding: 8px;
 	margin: 4px;
@@ -86,4 +135,13 @@ body {
 	font-family: "Arial Narrow Bold", sans-serif;
 	background-color: #2196f3;
 	color: white;
+}
+
+/*  
+    style for cache usage feedback text. 
+*/
+.form-feedback {
+	margin-top: 80px;
+	color: whitesmoke;
+	font-family: "Arial Narrow Bold", sans-serif;
 }
