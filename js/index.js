@@ -45,7 +45,9 @@ async function getUserInfo(username) {
 			const data = await response.json();
 			state = "loaded";
 			update(state);
-			saveInLS(data, key);
+			const repoFaveLang = await getLangs(data.repos_url);
+
+			saveInLS({ ...data, faveLang: repoFaveLang }, key);
 			readFromLs(key);
 		}
 	} catch (e) {
@@ -69,6 +71,9 @@ function readFromLs(key) {
 	userLocation.innerHTML = data.location;
 	fullName.innerHTML = data.name;
 	avatar.src = data.avatar_url;
+	faveLang.innerHTML = data.faveLang
+		? `Favorite lang: ${data.faveLang}`
+		: null;
 	bio.innerHTML = data.bio ? data.bio.replaceAll("\r\n", "<br>") : null;
 }
 
@@ -87,4 +92,36 @@ function update(state) {
 	message.style.display = "block";
 	infoDiv.style.justifyContent = "center";
 	message.innerHTML = state;
+}
+
+// get favourite language from recently pushed repos
+async function getLangs(url) {
+	const response = await fetch(url);
+	let langs = {};
+	if (response.ok) {
+		const data = await response.json();
+
+		// sort by pushed_at
+		data.sort(function compareFn(a, b) {
+			return new Date(b.pushed_at) - new Date(a.pushed_at);
+		});
+		const newRepos = data.slice(0, 5);
+		for (let i = 0; i < newRepos.length; i++) {
+			const repo = newRepos[i];
+			const lang = repo.language;
+			if (lang == null) continue;
+			langs[lang] = langs[lang] == null ? 1 : (langs[lang] += 1);
+		}
+	}
+
+	// sort langs
+	let sortable = [];
+	for (var lang in langs) {
+		sortable.push([lang, langs[lang]]);
+	}
+	sortable.sort(function (a, b) {
+		return b[1] - a[1];
+	});
+	if (sortable.length == 0) return null;
+	return sortable[0][0];
 }
